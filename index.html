@@ -1,101 +1,68 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Mandaeee</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: black;
-            font-family: 'Times New Roman', serif;
-        }/* background love */
-    .hearts {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .heart {
-        position: absolute;
-        color: pink;
-        animation: fall linear infinite;
-        opacity: 0.7;
-    }
-
-    /* text rain */
-    .rain-text {
-        position: absolute;
-        color: white;
-        font-size: 20px;
-        animation: rain linear infinite;
-        z-index: 1;
-    }
-
-    @keyframes rain {
-        from {
-            transform: translateY(-100px);
-        }
-        to {
-            transform: translateY(110vh);
-        }
-    }
-
-    @keyframes fall {
-        from {
-            transform: translateY(-50px);
-        }
-        to {
-            transform: translateY(110vh);
-        }
-    }
-
-</style>
-
+    <title>Latihan Multimedia</title>
 </head>
-<body><div class="hearts" id="hearts"></div><script>
-    // bikin hujan tulisan
-    const text = "KANGENNN🥹";
 
-    function createRain() {
-        const span = document.createElement("span");
-        span.classList.add("rain-text");
-        span.innerText = text;
+<body style="text-align:center; font-family: Arial;">
 
-        span.style.left = Math.random() * window.innerWidth + "px";
-        span.style.animationDuration = (2 + Math.random() * 3) + "s";
-        span.style.fontSize = (14 + Math.random() * 10) + "px";
+    <h2>Latihan Multimedia: Gambar, Video, dan Audio</h2>
 
-        document.body.appendChild(span);
+    <!-- Gambar -->
+    <img src="foto1.png" width="300" alt="foto1">
+    <p>Gambar: foto1.png</p>
 
-        setTimeout(() => {
-            span.remove();
-        }, 5000);
-    }
+    <hr>
 
-    setInterval(createRain, 200);
+    <!-- Video Player -->
+    <h3>Video Player</h3>
 
-    // bikin background love
-    const heartsContainer = document.getElementById("hearts");
+    <button onclick="tekanPause()">Play/Pause</button>
+    <button onclick="menjadiBig()">Big</button>
+    <button onclick="menjadiSmall()">Small</button>
+    <button onclick="menjadiNormal()">Normal</button>
 
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤";
+    <br><br>
 
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.fontSize = (10 + Math.random() * 20) + "px";
-        heart.style.animationDuration = (4 + Math.random() * 6) + "s";
+    <video id="videoku" width="430">
+        <source src="video1.mp4" type="video/mp4">
+        Browser anda tidak support video HTML5.
+    </video>
 
-        heartsContainer.appendChild(heart);
+    <hr>
 
-        setTimeout(() => {
-            heart.remove();
-        }, 10000);
-    }
+    <!-- Audio Player -->
+    <h3>Audio Player</h3>
 
-    setInterval(createHeart, 300);
-</script></body>
+    <audio controls>
+        <source src="audio1.mp3" type="audio/mpeg">
+        Browser anda tidak support audio HTML5.
+    </audio>
+
+<script>
+
+var VideoAku = document.getElementById("videoku");
+
+function tekanPause() {
+    if (VideoAku.paused)
+        VideoAku.play();
+    else
+        VideoAku.pause();
+}
+
+function menjadiBig() {
+    VideoAku.width = 560;
+}
+
+function menjadiSmall() {
+    VideoAku.width = 320;
+}
+
+function menjadiNormal() {
+    VideoAku.width = 430;
+}
+
+</script>
+
+</body>
 </html>
